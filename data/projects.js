@@ -53,7 +53,7 @@ const PROJECTS = [
       "assets/images/wtp/wtp_3.jpg",
       "assets/images/wtp/wtp_4.png"
     ],
-    tags: ["Arduino", "Raspberry Pi", "PLC", "HMI", "SCADA", "P&ID", "AutoCAD", "Control Logic"],
+    tags: ["Arduino", "Raspberry Pi", "PLC", "HMI", "P&ID", "AutoCAD"],
     link: "",
     repo: ""
   },
@@ -66,7 +66,7 @@ const PROJECTS = [
     images: [
       "assets/images/placeholder.svg"
     ],
-    tags: ["DCS", "DeltaV", "Instrument Loop Diagram", "Power Distribution", "Instrumentation"],
+    tags: ["Autocad", "Instrument Loop Diagram", "Power Distribution", "Instrumentation"],
     link: "",
     repo: ""
   },
@@ -125,7 +125,7 @@ const PROJECTS = [
       "assets/images/lpkta/robot_6.jpg",
       "assets/images/lpkta/robot_7.jpg"
     ],
-    tags: ["Raspberry Pi", "ESP32", "Telepresence Robot", "PCB Design", "Power Management", "Embedded System", "Wiring Design"],
+    tags: ["Raspberry Pi", "ESP32", "Telepresence Robot", "Power Management", "Embedded System", "Wiring Design"],
     link: "",
     repo: ""
   },
