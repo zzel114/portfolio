@@ -1,325 +1,804 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<!doctype html>
+<html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Update these meta tags with your real info -->
-  <title>Portfolio - Muhammad Zelot Zoha</title>
-  <meta name="description" content="Portfolio of Muhammad Zelot Zoha - Instrument Engineer & Problem Solver">
-  <meta name="author" content="Muhammad Zelot Zoha">
-
-  <!-- Open Graph (social preview) -->
-  <meta property="og:title" content="Portfolio - Muhammad Zelot Zoha">
-  <meta property="og:description" content="Portfolio of Muhammad Zelot Zoha - Instrument Engineer & Problem Solve">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/images/avatar.jpg">
-
-  <!-- Favicon (swap with your own) -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='28'>⚡</text></svg>">
-
-  <!-- Fonts -->
+  <meta charset="utf-8" />
+  <title>Muhammad Zelot Zoha - Instrument Engineer</title>
+  <meta name="description" content="Instrument engineer specialising in control systems, PLC automation, and field instrumentation. Based in Yogyakarta, Indonesia." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800;9..144,900&display=swap" rel="stylesheet">
+  <script>(function(){var t=localStorage.getItem('porto-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');})();</script>
+  <style>
+    /* ── Tokens: light / editorial (default) ── */
+    :root {
+      --bg:          #f4f1ea;
+      --bg2:         #ece8df;
+      --surface:     #ffffff;
+      --surface2:    #f7f4ee;
+      --border:      rgba(20,18,24,0.08);
+      --border2:     rgba(20,18,24,0.13);
+      --text:        #141218;
+      --muted:       #6b6456;
+      --accent:      #e85a2a;
+      --accent2:     #c9431a;
+      --glow:        rgba(232,90,42,0.20);
+      --tag-bg:      rgba(232,90,42,0.10);
+      --positive:    #2f8f4c;
+      --nav-bg:      rgba(244,241,234,0.88);
+      --grid-color:  rgba(20,18,24,0.05);
+      --aura-color:  rgba(232,90,42,0.10);
+      --sch-fill:    rgba(232,90,42,0.10);
+      --contact-aura:rgba(232,90,42,0.08);
+      --tl-glow:     rgba(232,90,42,0.30);
+      --pill-border: rgba(232,90,42,0.28);
+      --heading:     'Fraunces', Georgia, serif;
+      --sans:        'Inter', system-ui, sans-serif;
+      --mono:        'JetBrains Mono', monospace;
+      --container:   min(1200px, 92vw);
+      --nav-h:       66px;
+      --radius:      14px;
+      --radius-lg:   22px;
+      --ease:        cubic-bezier(.4,0,.2,1);
+    }
+    /* ── Dark theme ── */
+    [data-theme="dark"] {
+      --bg:          #0b0b10;
+      --bg2:         #101018;
+      --surface:     #16161f;
+      --surface2:    #1e1e2a;
+      --border:      rgba(255,255,255,0.07);
+      --border2:     rgba(255,255,255,0.12);
+      --text:        #e8e8f0;
+      --muted:       #7a7a8e;
+      --accent:      #6c63ff;
+      --accent2:     #8b84ff;
+      --glow:        rgba(108,99,255,0.22);
+      --tag-bg:      rgba(108,99,255,0.13);
+      --positive:    #4ade80;
+      --nav-bg:      rgba(11,11,16,0.78);
+      --grid-color:  rgba(108,99,255,0.055);
+      --aura-color:  rgba(108,99,255,0.14);
+      --sch-fill:    rgba(108,99,255,0.12);
+      --contact-aura:rgba(108,99,255,0.10);
+      --tl-glow:     rgba(108,99,255,0.35);
+      --pill-border: rgba(108,99,255,0.28);
+      --heading:     'Inter', system-ui, sans-serif;
+    }
 
-  <link rel="stylesheet" href="assets/css/style.css">
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: var(--sans); -webkit-font-smoothing: antialiased; line-height: 1.6;
+      transition: background 250ms var(--ease), color 250ms var(--ease);
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); z-index: 900;
+      display: flex; align-items: center; padding: 0 clamp(24px,4vw,64px);
+      background: var(--nav-bg);
+      backdrop-filter: blur(18px) saturate(180%); -webkit-backdrop-filter: blur(18px) saturate(180%);
+      border-bottom: 1px solid var(--border); transition: background 300ms var(--ease);
+    }
+    .brand { font-family: var(--mono); font-size: 15px; font-weight: 600; letter-spacing: 0.06em; color: var(--text); }
+    .brand b { color: var(--accent); }
+    .nav-links { margin-left: auto; display: flex; gap: 28px; align-items: center; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: var(--muted); letter-spacing: 0.02em; transition: color 180ms; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links .deck-link { display: inline-flex; align-items: center; gap: 6px; }
+    .nav-links .deck-link:hover { color: var(--accent) !important; }
+    .nav-links .deck-link svg { width: 14px; height: 14px; }
+    .nav-links .cta {
+      padding: 9px 20px; background: var(--accent); color: #fff !important;
+      border-radius: 8px; font-size: 14px; font-weight: 600;
+      box-shadow: 0 4px 18px var(--glow); transition: background 180ms;
+    }
+    .nav-links .cta:hover { background: var(--accent2); }
+    .theme-toggle {
+      width: 36px; height: 36px; border-radius: 8px;
+      border: 1px solid var(--border2); background: var(--surface); color: var(--muted);
+      display: flex; align-items: center; justify-content: center; cursor: pointer;
+      transition: background 180ms, color 180ms; flex-shrink: 0;
+    }
+    .theme-toggle:hover { background: var(--surface2); color: var(--text); }
+    .theme-toggle svg { width: 16px; height: 16px; }
+    .icon-sun  { display: none; }
+    .icon-moon { display: block; }
+    [data-theme="dark"] .icon-sun  { display: block; }
+    [data-theme="dark"] .icon-moon { display: none; }
+
+    /* ── Utilities ── */
+    .container { width: var(--container); margin: 0 auto; }
+    .section-label {
+      font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--muted);
+      display: flex; align-items: center; gap: 14px;
+    }
+    .section-label::before { content: ""; display: block; width: 32px; height: 1.5px; background: var(--accent); }
+    .pill {
+      display: inline-flex; align-items: center; gap: 10px; padding: 9px 18px;
+      border-radius: 999px; background: var(--tag-bg); border: 1px solid var(--pill-border);
+      font-family: var(--mono); font-size: 13px; font-weight: 500; color: var(--accent);
+    }
+    .pill .dot {
+      width: 8px; height: 8px; border-radius: 50%; background: var(--positive);
+      box-shadow: 0 0 0 3px rgba(74,222,128,0.2); animation: blink 2s infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+    .tag {
+      display: inline-block; padding: 5px 12px; background: var(--tag-bg);
+      border: 1px solid var(--border2); border-radius: 6px;
+      font-family: var(--mono); font-size: 12px; font-weight: 500; color: var(--accent);
+    }
+
+    /* ── Hero ── */
+    #hero { min-height: 100vh; display: flex; align-items: center; padding-top: var(--nav-h); position: relative; overflow: hidden; }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image: linear-gradient(var(--grid-color) 1px, transparent 1px), linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+      background-size: 52px 52px;
+      mask-image: radial-gradient(ellipse at 50% 0%, rgba(0,0,0,.7) 30%, transparent 80%);
+    }
+    .hero-aura {
+      position: absolute; width: 900px; height: 900px; top: -300px; right: -200px;
+      background: radial-gradient(circle, var(--aura-color) 0%, transparent 60%); pointer-events: none;
+    }
+    #hero .container {
+      display: grid; grid-template-columns: 1fr 420px; gap: 80px; align-items: center;
+      padding: 120px 0 100px; position: relative; z-index: 2;
+    }
+    .hero-content .pill { margin-bottom: 36px; }
+    .hero-name {
+      font-family: var(--heading); font-size: clamp(52px,7vw,96px); font-weight: 900;
+      line-height: 0.96; letter-spacing: -0.03em; color: var(--text);
+    }
+    .hero-name .accent { color: var(--accent); }
+    .hero-tagline { margin-top: 28px; font-size: clamp(17px,2vw,21px); font-weight: 400; color: var(--muted); max-width: 520px; line-height: 1.55; }
+    .hero-ctas { margin-top: 44px; display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px;
+      background: var(--accent); color: #fff; border-radius: 10px; font-size: 15px; font-weight: 600;
+      box-shadow: 0 8px 24px var(--glow); transition: background 200ms, transform 150ms;
+    }
+    .btn-primary:hover { background: var(--accent2); transform: translateY(-2px); }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px;
+      background: var(--surface); color: var(--text); border-radius: 10px; font-size: 15px; font-weight: 600;
+      border: 1px solid var(--border2); transition: background 200ms;
+    }
+    .btn-ghost:hover { background: var(--surface2); }
+    .btn-deck {
+      display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px;
+      background: transparent; color: var(--accent); border-radius: 10px; font-size: 15px; font-weight: 600;
+      border: 1.5px solid var(--accent); transition: background 200ms;
+    }
+    .btn-deck:hover { background: var(--tag-bg); }
+    .hero-card {
+      background: var(--surface); border: 1px solid var(--border2); border-radius: var(--radius-lg);
+      padding: 36px 32px; display: flex; flex-direction: column; gap: 20px; position: relative;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.10);
+    }
+    [data-theme="dark"] .hero-card { box-shadow: 0 24px 60px rgba(0,0,0,0.35); }
+    .hero-card::before {
+      content: ""; position: absolute; top: 0; left: 32px; right: 32px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0.5;
+    }
+    .hero-card .avatar { width: 88px; height: 88px; border-radius: 50%; border: 2px solid var(--border2); overflow: hidden; flex-shrink: 0; }
+    .hero-card .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hero-card .name-block { display: flex; gap: 18px; align-items: center; }
+    .hero-card .name-block h2 { font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+    .hero-card .name-block p  { font-size: 13px; color: var(--muted); }
+    .hero-card .divider-line  { height: 1px; background: var(--border); }
+    .hero-card .stat-row { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; }
+    .hero-card .stat { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+    .hero-card .stat .n { font-size: 28px; font-weight: 800; color: var(--accent); line-height: 1; letter-spacing: -0.03em; }
+    .hero-card .stat .l { font-size: 12px; color: var(--muted); margin-top: 4px; }
+    .hero-card .skills-mini { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    /* ── Shared sections ── */
+    .section { padding: clamp(80px,10vw,120px) 0; border-top: 1px solid var(--border); }
+    .section-head { margin-bottom: clamp(48px,6vw,72px); }
+    .section-head h2 {
+      font-family: var(--heading); font-size: clamp(34px,4vw,52px); font-weight: 800;
+      letter-spacing: -0.02em; line-height: 1.05; margin-top: 14px;
+    }
+    .section-head p { margin-top: 16px; font-size: 18px; color: var(--muted); max-width: 540px; line-height: 1.55; }
+
+    /* About */
+    #about .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .about-body { font-size: 18px; line-height: 1.7; color: var(--text); }
+    .about-tags { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 8px; }
+    .stat-4 { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; }
+    .stat-card { background: var(--surface); border: 1px solid var(--border2); border-radius: var(--radius); padding: 24px; transition: border-color 250ms, background 250ms; }
+    .stat-card:hover { border-color: var(--accent); background: var(--surface2); }
+    .stat-card .n { font-size: 48px; font-weight: 900; letter-spacing: -0.04em; color: var(--accent); line-height: 1; }
+    .stat-card .l { margin-top: 8px; font-size: 14px; color: var(--muted); font-weight: 500; line-height: 1.4; }
+
+    /* Skills */
+    #skills .groups { display: flex; flex-direction: column; gap: 40px; }
+    .skill-group .g-label {
+      font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 14px; display: flex; align-items: center; gap: 14px;
+    }
+    .skill-group .g-label::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+    .skill-group .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+    .chip {
+      padding: 10px 18px; background: var(--surface); border: 1px solid var(--border2); border-radius: 9px;
+      font-family: var(--mono); font-size: 14px; font-weight: 500; color: var(--text);
+      transition: border-color 200ms, color 200ms, background 200ms;
+    }
+    .chip:hover { border-color: var(--accent); color: var(--accent); background: var(--surface2); }
+    .chip.prime { background: var(--tag-bg); border-color: var(--accent); color: var(--accent); }
+
+    /* Featured */
+    #featured .proj-list { display: flex; flex-direction: column; gap: 56px; }
+    .feat-card {
+      display: grid; grid-template-columns: 1fr 440px; gap: 56px; align-items: start;
+      padding: 48px 52px; background: var(--surface); border: 1px solid var(--border2);
+      border-radius: var(--radius-lg); transition: border-color 300ms, box-shadow 300ms;
+    }
+    .feat-card:hover { border-color: var(--accent); box-shadow: 0 16px 56px rgba(0,0,0,0.12); }
+    [data-theme="dark"] .feat-card:hover { box-shadow: 0 16px 56px rgba(0,0,0,0.35); }
+    .feat-card.flip { grid-template-columns: 440px 1fr; }
+    .feat-card.flip .feat-meta   { order: 2; }
+    .feat-card.flip .feat-visual { order: 1; }
+    .feat-meta { display: flex; flex-direction: column; gap: 24px; }
+    .feat-meta .n { font-family: var(--mono); font-size: 12px; color: var(--muted); letter-spacing: 0.14em; }
+    .feat-meta h3 { font-family: var(--heading); font-size: clamp(24px,2.5vw,34px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; color: var(--text); }
+    .feat-meta .desc { font-size: 16px; line-height: 1.65; color: var(--muted); }
+    .feat-meta .psr { display: grid; grid-template-columns: 80px 1fr; gap: 10px 20px; }
+    .feat-meta .psr .k { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); padding-top: 3px; font-weight: 600; }
+    .feat-meta .psr .v { font-size: 15px; line-height: 1.5; color: var(--text); border-left: 1.5px solid var(--border2); padding-left: 18px; padding-bottom: 10px; }
+    .feat-meta .psr .v.result { color: var(--accent); font-weight: 500; }
+    .feat-meta .tags-wrap { display: flex; flex-wrap: wrap; gap: 8px; }
+    .feat-visual {
+      background: var(--bg2); border: 1px solid var(--border); border-radius: 16px;
+      overflow: hidden; aspect-ratio: 4/5; position: relative;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .feat-visual img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+    .feat-visual .ph-cap {
+      position: absolute; bottom: 16px; left: 16px; right: 16px;
+      font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #fff;
+      background: rgba(0,0,0,0.55); backdrop-filter: blur(6px); padding: 9px 14px; border-radius: 8px; z-index: 2;
+    }
+    .feat-visual .accent-bar { position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--accent), transparent 70%); z-index: 3; }
+
+    /* More projects */
+    #more-projects .proj-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; margin-top: 48px; }
+    .mini-card {
+      background: var(--surface); border: 1px solid var(--border2); border-radius: var(--radius);
+      overflow: hidden; display: flex; flex-direction: column;
+      transition: border-color 250ms, transform 250ms, box-shadow 250ms;
+    }
+    .mini-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.12); }
+    [data-theme="dark"] .mini-card:hover { box-shadow: 0 16px 40px rgba(0,0,0,0.3); }
+    .mini-card .thumb { height: 160px; background: var(--bg2); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+    .mini-card .thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+    .mini-card .thumb svg { width: 70%; height: 70%; }
+    .mini-card .thumb .cat {
+      position: absolute; top: 12px; left: 12px; z-index: 2;
+      font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);
+      background: rgba(255,255,255,0.88); backdrop-filter: blur(4px);
+      padding: 5px 10px; border-radius: 999px; border: 1px solid var(--border2);
+    }
+    [data-theme="dark"] .mini-card .thumb .cat { background: rgba(0,0,0,0.65); color: var(--accent2); }
+    .mini-card .body { padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+    .mini-card .body h4 { font-family: var(--heading); font-size: 16px; font-weight: 700; line-height: 1.3; color: var(--text); letter-spacing: -0.01em; }
+    .mini-card .body p { font-size: 14px; line-height: 1.5; color: var(--muted); }
+    .mini-card .body .tags-wrap { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 8px; }
+
+    /* Timeline */
+    #experience .tl { display: flex; flex-direction: column; margin-top: 56px; position: relative; }
+    #experience .tl::before { content: ""; position: absolute; left: 148px; top: 12px; bottom: 12px; width: 1px; background: var(--border2); }
+    .tl-item { display: grid; grid-template-columns: 148px 1fr; gap: 0 48px; padding: 28px 0; border-bottom: 1px solid var(--border); position: relative; }
+    .tl-item:last-child { border-bottom: none; }
+    .tl-item::after { content: ""; position: absolute; left: calc(148px + 24px - 5px); top: 36px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px var(--bg), 0 0 0 5px var(--tl-glow); }
+    .tl-item .date { font-family: var(--mono); font-size: 12px; color: var(--muted); letter-spacing: 0.06em; padding-top: 4px; text-align: right; }
+    .tl-item .info { padding-left: 8px; }
+    .tl-item .info h4 { font-family: var(--heading); font-size: 18px; font-weight: 700; color: var(--text); letter-spacing: -0.01em; line-height: 1.2; }
+    .tl-item .info .org { font-size: 14px; color: var(--muted); margin-top: 4px; }
+    .tl-item .info .detail { font-size: 14px; color: var(--muted); margin-top: 8px; line-height: 1.55; max-width: 620px; }
+    .tl-item .info .tags-wrap { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; }
+    .tl-item:hover .info h4 { color: var(--accent); transition: color 200ms; }
+
+    /* Contact */
+    #contact { padding: clamp(80px,10vw,120px) 0; border-top: 1px solid var(--border); position: relative; overflow: hidden; }
+    #contact::before { content: ""; position: absolute; bottom: -300px; left: -200px; width: 800px; height: 800px; background: radial-gradient(circle, var(--contact-aura) 0%, transparent 60%); pointer-events: none; }
+    #contact .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    #contact h2 { font-family: var(--heading); font-size: clamp(40px,6vw,76px); font-weight: 900; letter-spacing: -0.03em; line-height: 0.96; margin-top: 20px; }
+    #contact h2 .accent { color: var(--accent); }
+    #contact .sub { margin-top: 24px; font-size: 18px; color: var(--muted); max-width: 420px; line-height: 1.6; }
+    #contact .ctas { margin-top: 40px; display: flex; gap: 14px; flex-wrap: wrap; }
+    .channels { display: flex; flex-direction: column; gap: 16px; padding-top: 12px; }
+    .channel { display: flex; align-items: center; gap: 18px; padding: 20px 24px; background: var(--surface); border: 1px solid var(--border2); border-radius: var(--radius); transition: border-color 200ms, background 200ms; }
+    .channel:hover { border-color: var(--accent); background: var(--surface2); }
+    .channel .icon { width: 48px; height: 48px; border-radius: 10px; background: var(--tag-bg); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--accent); }
+    .channel .icon svg { width: 22px; height: 22px; }
+    .channel .k { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
+    .channel .v { font-size: 16px; font-weight: 500; color: var(--text); }
+
+    /* Footer */
+    footer { border-top: 1px solid var(--border); padding: 32px 0; }
+    footer .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    footer .left { font-family: var(--mono); font-size: 13px; color: var(--muted); }
+    footer .left b { color: var(--text); }
+    footer .right { display: flex; gap: 24px; }
+    footer .right a { font-size: 13px; color: var(--muted); transition: color 180ms; }
+    footer .right a:hover { color: var(--accent); }
+
+    /* SVG schematics */
+    .sch path, .sch line, .sch rect, .sch circle, .sch polyline, .sch polygon { stroke: var(--accent); fill: none; stroke-width: 1.5; opacity: 0.55; }
+    .sch .fill { fill: var(--sch-fill); stroke: none; opacity: 1; }
+    .sch text { fill: var(--accent); opacity: 0.7; }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 600ms var(--ease), transform 600ms var(--ease); }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      #hero .container { grid-template-columns: 1fr; gap: 48px; }
+      .hero-card { display: none; }
+      #about .grid { grid-template-columns: 1fr; gap: 40px; }
+      .feat-card, .feat-card.flip { grid-template-columns: 1fr; }
+      .feat-card.flip .feat-meta, .feat-card.flip .feat-visual { order: unset; }
+      .feat-visual { aspect-ratio: 16/9; }
+      #more-projects .proj-grid { grid-template-columns: repeat(2,1fr); }
+      #contact .grid { grid-template-columns: 1fr; gap: 48px; }
+      #experience .tl::before { display: none; }
+      .tl-item { grid-template-columns: 1fr; gap: 4px; }
+      .tl-item::after { display: none; }
+      .tl-item .date { text-align: left; font-size: 11px; }
+    }
+    @media (max-width: 600px) {
+      #more-projects .proj-grid { grid-template-columns: 1fr; }
+      .nav-links { gap: 14px; }
+      .nav-links a:not(.cta) { display: none; }
+      .nav-links .theme-toggle, .nav-links .cta { display: flex; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- ══════════════════════════════════════════════════════════
-       NAVIGATION
-  ═══════════════════════════════════════════════════════════ -->
-  <nav class="nav" role="navigation" aria-label="Main navigation">
-    <div class="nav__inner">
-      <a href="#hero" class="nav__logo" aria-label="Go to top">
-        My<span>Portofolio</span>
-      </a>
-
-      <ul class="nav__links" role="list">
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-
-      <div class="nav__actions">
-        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">☀️</button>
-        <button class="nav__hamburger" aria-label="Open menu" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Mobile drawer -->
-  <div class="nav__drawer" aria-hidden="true">
-    <a href="#hero">Home</a>
+<nav>
+  <div class="brand"><b>MZZ</b> · Muhammad Zelot Zoha</div>
+  <div class="nav-links">
     <a href="#about">About</a>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#contact">Contact</a>
+    <a href="#skills">Skills</a>
+    <a href="#featured">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="Portfolio Deck.html" class="deck-link" target="_blank">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      Deck
+    </a>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="icon-sun"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+    </button>
+    <a href="#contact" class="cta">Contact</a>
   </div>
+</nav>
 
-  <main>
-
-    <!-- ════════════════════════════════════════════════════════
-         HERO
-    ═══════════════════════════════════════════════════════════ -->
-    <section class="hero section" id="hero" aria-label="Introduction">
-      <div class="container">
-        <div class="hero__inner">
-
-          <!-- Text -->
-          <div class="hero__content">
-            <div class="hero__badge">
-              <span class="hero__badge-dot" aria-hidden="true"></span>
-              Available for opportunities
-            </div>
-
-            <h1 class="hero__name">
-              Hi, I'm <span class="js-name">Your Name</span>
-            </h1>
-            <p class="hero__title js-title">Full-Stack Developer &amp; Designer</p>
-            <p class="hero__tagline js-tagline">I build things for the web.</p>
-            <p class="hero__desc js-about">
-              I'm a passionate developer with a love for crafting clean,
-              efficient, and user-friendly digital experiences.
-            </p>
-
-            <div class="hero__cta">
-              <a href="#portfolio" class="btn btn-primary">View My Work</a>
-              <a href="#contact" class="btn btn-ghost">Get In Touch</a>
-            </div>
-          </div>
-
-          <!-- Visual -->
-          <div class="hero__visual" aria-hidden="true">
-            <div class="hero__avatar-wrap">
-              <!-- Populated by main.js from PROFILE.avatar -->
-              <div class="hero__avatar-ring"></div>
-              <div class="hero__avatar-placeholder">👤</div>
-            </div>
-          </div>
-
-        </div>
+<!-- Hero -->
+<section id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-aura"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="pill"><span class="dot"></span>Available for opportunities</div>
+      <h1 class="hero-name">Muhammad<br>Zelot<span class="accent">.</span><br>Zoha</h1>
+      <p class="hero-tagline">Instrument engineer - engineering solutions to real problems. From P&amp;ID to field commissioning, PLC automation to embedded systems.</p>
+      <div class="hero-ctas">
+        <a href="#featured" class="btn-primary">
+          View projects
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a href="Portfolio Deck.html" class="btn-deck" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          View deck
+        </a>
+        <a href="#contact" class="btn-ghost">Get in touch</a>
       </div>
-    </section>
-
-    <!-- ════════════════════════════════════════════════════════
-         ABOUT
-    ═══════════════════════════════════════════════════════════ -->
-    <section class="about section" id="about" aria-label="About me">
-      <div class="container">
-        <div class="about__inner">
-
-          <!-- Text -->
-          <div class="about__text reveal">
-            <p class="section-label">About Me</p>
-            <h2 class="section-title">A bit about <br>who I am</h2>
-            <p class="js-about">
-              I'm a passionate developer with a love for crafting clean,
-              efficient, and user-friendly digital experiences. When I'm not
-              coding, you'll find me exploring new technologies and design trends.
-            </p>
-
-            <!-- Skills — edit the badges here -->
-            <div class="about__skills">
-              <p class="about__skills-title">Technologies I work with</p>
-              <div class="skills-grid">
-                <span class="skill-badge">AutoCad</span>
-                <span class="skill-badge">InstruCalc</span>
-                <span class="skill-badge">Machine Expert Basic</span>
-                <span class="skill-badge">TIA Portal</span>
-                <span class="skill-badge">Python</span>
-                <span class="skill-badge">Excel</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Stats — update numbers here -->
-          <div class="about__stats reveal">
-            <div class="stat-card">
-              <div class="stat-number">1</div>
-              <div class="stat-label">Years of experience</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-number">6</div>
-              <div class="stat-label">Projects completed</div>
-            </div>
-            <!-- <div class="stat-card">
-              <div class="stat-number">10+</div>
-              <div class="stat-label">Happy clients</div>
-            </div>
-            <div class="stat-card">
-              <div class="stat-number">∞</div>
-              <div class="stat-label">Cups of coffee</div> -->
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ════════════════════════════════════════════════════════
-         PORTFOLIO
-    ═══════════════════════════════════════════════════════════ -->
-    <section class="portfolio section" id="portfolio" aria-label="Portfolio">
-      <div class="container">
-
-        <div class="portfolio__header">
-          <div class="portfolio__meta reveal">
-            <p class="section-label">My Work</p>
-            <h2 class="section-title">Projects and Experience</h2>
-            <p class="section-subtitle">
-              A collection of work I'm proud of. Click a category to filter.
-            </p>
-          </div>
-          <!-- Filter tabs are rendered by main.js from PROJECTS categories -->
-          <div class="filter-tabs" role="tablist" aria-label="Filter projects"></div>
-        </div>
-
-        <!-- Cards are rendered by main.js from data/projects.js -->
-        <div class="projects-grid" id="projects-grid"></div>
-
-      </div>
-    </section>
-
-    <!-- ════════════════════════════════════════════════════════
-         CONTACT
-    ═══════════════════════════════════════════════════════════ -->
-    <section class="contact section" id="contact" aria-label="Contact">
-      <div class="container">
-        <div class="contact__inner">
-
-          <!-- Info -->
-          <div class="contact__info reveal">
-            <p class="section-label">Get In Touch</p>
-            <h2 class="section-title">Let's work<br>together</h2>
-            <p class="section-subtitle">
-              Have a project in mind? I'd love to hear about it.
-              Send me a message and I'll get back to you as soon as possible.
-            </p>
-
-            <div class="contact__item">
-              <div class="contact__icon" aria-hidden="true">📧</div>
-              <div>
-                <p class="contact__item-label">Email</p>
-                <p class="contact__item-value">
-                  <a href="mailto:" class="js-email">hello@example.com</a>
-                </p>
-              </div>
-            </div>
-
-            <!-- Social buttons — hidden/shown by main.js based on PROFILE -->
-            <div class="contact__socials">
-              <span data-social>
-                <a href="#" class="social-btn js-github" target="_blank" rel="noopener" aria-label="GitHub">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.72-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.74-1.33-1.74-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013-.4c1.02 0 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58C20.57 21.8 24 17.31 24 12c0-6.63-5.37-12-12-12z"/>
-                  </svg>
-                </a>
-              </span>
-              <span data-social>
-                <a href="#" class="social-btn js-linkedin" target="_blank" rel="noopener" aria-label="LinkedIn">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zM3.56 20.45h3.56V9H3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/>
-                  </svg>
-                </a>
-              </span>
-              <span data-social>
-                <a href="#" class="social-btn js-twitter" target="_blank" rel="noopener" aria-label="Twitter / X">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                  </svg>
-                </a>
-              </span>
-            </div>
-          </div>
-
-          <!-- Form -->
-          <div class="reveal">
-            <form class="contact-form" id="contact-form" novalidate>
-              <div class="form-group">
-                <label for="name">Your Name</label>
-                <input type="text" id="name" name="name" placeholder="Jane Doe" required autocomplete="name">
-              </div>
-              <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" placeholder="jane@example.com" required autocomplete="email">
-              </div>
-              <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" placeholder="Tell me about your project…" required></textarea>
-              </div>
-              <div id="form-status" class="form-status" role="status"></div>
-              <button type="submit" class="btn btn-primary" style="align-self:flex-start">
-                Send Message
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-                  <line x1="22" y1="2" x2="11" y2="13"/>
-                  <polygon points="22 2 15 22 11 13 2 9 22 2"/>
-                </svg>
-              </button>
-            </form>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ══════════════════════════════════════════════════════════
-       FOOTER
-  ═══════════════════════════════════════════════════════════ -->
-  <footer class="footer" role="contentinfo">
-    <div class="container">
-      <p class="footer__text">
-        © <span id="year"></span> <span class="js-footer-name">Your Name</span>.
-        Built with HTML, CSS &amp; vanilla JS.
-        <a href="https://github.com/zzel114/portfolio" target="_blank" rel="noopener">View source</a>
-      </p>
     </div>
-  </footer>
-
-  <!-- Back to top -->
-  <button class="back-to-top" aria-label="Back to top">↑</button>
-
-  <!-- ══════════════════════════════════════════════════════════
-       PROJECT MODAL
-  ═══════════════════════════════════════════════════════════ -->
-  <div class="modal-overlay" id="project-modal" role="dialog" aria-modal="true" aria-label="Project details" hidden>
-    <div class="modal">
-      <button class="modal__close" id="modal-close" aria-label="Close">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-        </svg>
-      </button>
-
-      <!-- Gallery -->
-      <div class="modal__gallery">
-        <div class="modal__gallery-main">
-          <img id="modal-img-main" src="" alt="" draggable="false">
-          <button class="gallery-arrow gallery-arrow--prev" id="gallery-prev" aria-label="Previous image">&#8592;</button>
-          <button class="gallery-arrow gallery-arrow--next" id="gallery-next" aria-label="Next image">&#8594;</button>
+    <div class="hero-card reveal">
+      <div class="name-block">
+        <div class="avatar"><img src="assets/images/foto_zelot.jpg" alt="Muhammad Zelot Zoha"></div>
+        <div>
+          <h2>Muhammad Zelot Zoha</h2>
+          <p>Instrument Engineer · Engineering Physics UGM</p>
         </div>
-        <div class="modal__gallery-thumbs" id="gallery-thumbs"></div>
       </div>
-
-      <!-- Info -->
-      <div class="modal__info">
-        <span class="modal__category" id="modal-category"></span>
-        <h2 class="modal__title" id="modal-title"></h2>
-        <div class="modal__details" id="modal-details"></div>
-        <div class="modal__tags" id="modal-tags"></div>
-        <div class="modal__links" id="modal-links"></div>
+      <div class="divider-line"></div>
+      <div class="stat-row">
+        <div class="stat"><div class="n">9+</div><div class="l">Projects delivered</div></div>
+        <div class="stat"><div class="n">4</div><div class="l">Engineering domains</div></div>
+        <div class="stat"><div class="n">1yr</div><div class="l">Experience</div></div>
+        <div class="stat"><div class="n">6</div><div class="l">Clients &amp; labs</div></div>
+      </div>
+      <div class="divider-line"></div>
+      <div class="skills-mini">
+        <span class="tag">AutoCAD</span>
+        <span class="tag">Siemens S7-1200</span>
+        <span class="tag">P&amp;ID</span>
+        <span class="tag">Raspberry Pi</span>
+        <span class="tag">DCS DeltaV</span>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- Data + Scripts (order matters) -->
-  <script src="data/projects.js"></script>
-  <script src="assets/js/main.js"></script>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<!-- About -->
+<section id="about" class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-label">About me</div>
+      <h2>Engineering that works in the real world.</h2>
+    </div>
+    <div class="grid reveal">
+      <div>
+        <p class="about-body">I apply engineering principles to solve real, practical problems - ranging from control and instrumentation systems to data-driven optimisation.</p>
+        <p class="about-body" style="margin-top:18px;color:var(--muted);font-size:17px;line-height:1.7;">My experience spans sensors, control logic, system modelling, hands-on implementation, and telemetry. I've worked in EPC environments, on industrial sites, and inside university research labs - always with a focus on solutions that are technically sound, measurable, and actually ship.</p>
+        <div class="about-tags">
+          <span class="tag">Teknik Fisika</span>
+          <span class="tag">Universitas Gadjah Mada</span>
+          <span class="tag">Yogyakarta, Indonesia</span>
+        </div>
+      </div>
+      <div class="stat-4">
+        <div class="stat-card"><div class="n">9+</div><div class="l">Projects delivered across industry and research</div></div>
+        <div class="stat-card"><div class="n">4</div><div class="l">Engineering domains: Instrumentation, PLC, Embedded, UAV</div></div>
+        <div class="stat-card"><div class="n">1yr</div><div class="l">Experience</div></div>
+        <div class="stat-card"><div class="n">6</div><div class="l">Clients, companies and research labs</div></div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- Skills -->
+<section id="skills" class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-label">Technical toolkit</div>
+      <h2>From the plant floor to the lab bench.</h2>
+      <p>Core tools and platforms I use across instrumentation, automation, and embedded systems.</p>
+    </div>
+    <div class="groups reveal">
+      <div class="skill-group">
+        <div class="g-label">// Instrumentation &amp; Control</div>
+        <div class="chips">
+          <span class="chip prime">AutoCAD</span><span class="chip prime">P&amp;ID (ISA 5.1)</span>
+          <span class="chip">Instrument Loop Diagrams</span><span class="chip">Hook-up Drawings</span>
+          <!-- <span class="chip">InstruCalc</span><span class="chip">DCS DeltaV</span> -->
+          <span class="chip">Instrument Index / I&amp;O List</span><span class="chip">Datasheet Preparation</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="g-label">// PLC &amp; Automation</div>
+        <div class="chips">
+          <span class="chip prime">Siemens S7-1200</span><span class="chip prime">Schneider PLC</span>
+          <span class="chip">TIA Portal</span><span class="chip">WinCC HMI</span>
+          <span class="chip">Machine Expert Basic</span><span class="chip">Ladder Logic</span>
+          <span class="chip">Analog Scaling</span><span class="chip">SCADA</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="g-label">// Embedded &amp; IoT</div>
+        <div class="chips">
+          <span class="chip prime">Raspberry Pi</span><span class="chip prime">ESP32</span>
+          <span class="chip">Arduino</span><span class="chip">Python</span>
+          <span class="chip">RF / Telemetry</span><span class="chip">Antenna Design</span>
+          <span class="chip">Sensor Integration</span><span class="chip">Power Management</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Projects -->
+<section id="featured" class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-label">Featured projects</div>
+      <h2>Three projects that defined the year.</h2>
+    </div>
+    <div class="proj-list">
+
+      <div class="feat-card reveal">
+        <div class="feat-meta">
+          <div class="n">01 - Control System · Engineering Lead</div>
+          <h3>Water Treatment Plant, end-to-end.</h3>
+          <p class="desc">Led the full engineering lifecycle of a mini WTP - P&amp;ID, control narratives, panel layouts, wiring diagrams, and core control logic across Arduino, Raspberry Pi, PLC, HMI and SCADA.</p>
+          <div class="psr">
+            <div class="k">Problem</div><div class="v">Investor needed a fully integrated control system spanning multiple engineering disciplines and hardware layers.</div>
+            <div class="k">Action</div><div class="v">Produced all engineering drawings from P&amp;ID to wiring diagrams. Built filtration, backwash, drain, and safety sequencing on Arduino; supervised Pi/PLC/HMI/SCADA integration.</div>
+            <div class="k">Result</div><div class="v result">WTP with reliable multi-platform communications and a clean separation of control layers across hardware.</div>
+          </div>
+          <div class="tags-wrap"><span class="tag">Arduino</span><span class="tag">Raspberry Pi</span><span class="tag">PLC</span><span class="tag">HMI</span><span class="tag">SCADA</span><span class="tag">P&amp;ID</span><span class="tag">AutoCAD</span></div>
+        </div>
+        <div class="feat-visual">
+          <div class="accent-bar"></div>
+          <img src="assets/images/wtp/wtp_1.jpg" alt="Water Treatment Plant">
+          <div class="ph-cap">Mini WTP · end-to-end control system</div>
+        </div>
+      </div>
+
+      <div class="feat-card flip reveal">
+        <div class="feat-meta">
+          <div class="n">02 - AutoCAD · Field Verification</div>
+          <h3>As-built documentation for Geo Dipa Energy.</h3>
+          <p class="desc">Field-verified and redrew engineering documents for PT Fusi Gama Indonesia under a Geodipa project managed by Kwarsa Hexagon.</p>
+          <div class="psr">
+            <div class="k">Problem</div><div class="v">P&amp;ID references did not match installed field instruments - discrepancies were blocking commissioning sign-off.</div>
+            <div class="k">Action</div><div class="v">Direct field verification of tag numbers, signal types and physical positions. Redrew hook-up drawings and instrument location layouts in AutoCAD from verified field data.</div>
+            <div class="k">Result</div><div class="v result">Accurate as-built documentation matching real field conditions - all identified discrepancies resolved.</div>
+          </div>
+          <div class="tags-wrap"><span class="tag">AutoCAD</span><span class="tag">P&amp;ID</span><span class="tag">Hook-up Drawing</span><span class="tag">Instrument Location</span><span class="tag">Field Verification</span></div>
+        </div>
+        <div class="feat-visual">
+          <div class="accent-bar"></div>
+          <img src="assets/images/geodipa/geodipa_1.jpg" alt="Geo Dipa Energy as-built documentation">
+          <div class="ph-cap">Hook-up · rev as-built · Geo Dipa</div>
+        </div>
+      </div>
+
+      <div class="feat-card reveal">
+        <div class="feat-meta">
+          <div class="n">03 - PLC &amp; Automation · Assistant Instructor</div>
+          <h3>Teaching PLC, at Universitas Gadjah Mada.</h3>
+          <p class="desc">Delivered hands-on PLC programming sessions for the Teknik Fisika department at UGM covering Siemens S7-1200, WinCC HMI and Schneider PLC (Aug–Dec 2025).</p>
+          <div class="psr">
+            <div class="k">Scope</div><div class="v">Designed custom case studies covering analog scaling, signal processing and practical control logic across two PLC platforms.</div>
+            <div class="k">Action</div><div class="v">Configured S7-1200 ↔ WinCC comms, guided students through ladder-logic builds, supported troubleshooting on both Siemens and Schneider hardware.</div>
+            <div class="k">Impact</div><div class="v result">Students developed the confidence and skills to diagnose and resolve control-system issues independently on both platforms.</div>
+          </div>
+          <div class="tags-wrap"><span class="tag">Siemens S7-1200</span><span class="tag">WinCC</span><span class="tag">Schneider PLC</span><span class="tag">Ladder Logic</span><span class="tag">HMI</span><span class="tag">Analog Scaling</span></div>
+        </div>
+        <div class="feat-visual">
+          <div class="accent-bar"></div>
+          <img src="assets/images/ugm_plc/plc_1.png" alt="PLC teaching at UGM">
+          <div class="ph-cap">Ladder logic · TIA Portal · S7-1200</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- More Projects -->
+<section id="more-projects" class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-label">More work</div>
+      <h2>Six more projects, from oil &amp; gas to UAVs.</h2>
+    </div>
+    <div class="proj-grid">
+
+      <div class="mini-card reveal">
+        <div class="thumb">
+          <svg class="sch" viewBox="0 0 160 96"><rect class="fill" x="8" y="22" width="34" height="52" rx="3"/><rect x="8" y="22" width="34" height="52" rx="3"/><rect class="fill" x="58" y="14" width="42" height="68" rx="3"/><rect x="58" y="14" width="42" height="68" rx="3"/><rect class="fill" x="116" y="30" width="32" height="44" rx="3"/><rect x="116" y="30" width="32" height="44" rx="3"/><line x1="42" y1="48" x2="58" y2="48"/><line x1="100" y1="48" x2="116" y2="48"/><circle cx="79" cy="48" r="8" stroke-width="1.2"/></svg>
+          <div class="cat">Instrumentation</div>
+        </div>
+        <div class="body">
+          <h4>Instrument Loop Diagrams - PT Pertamina Hulu Rokan</h4>
+          <p>Loop diagrams for the DCS DeltaV at Balam Gathering Station - mapping field devices to I/O cards with full cable numbering and signal types.</p>
+          <div class="tags-wrap"><span class="tag">AutoCAD</span><span class="tag">Power Distribution Diagram</span><span class="tag">Loop Diagram</span></div>
+        </div>
+      </div>
+
+      <div class="mini-card reveal">
+        <div class="thumb">
+          <img src="assets/images/jgc/jgc_1.jpg" alt="PT JGC Indonesia internship">
+          <div class="cat">Instrumentation</div>
+        </div>
+        <div class="body">
+          <h4>Instrument Department Internship - PT JGC Indonesia</h4>
+          <p>Hands-on EPC experience: P&amp;ID reading and interpretation, instrument indexes, I/O lists and datasheets for a major EPC firm.</p>
+          <div class="tags-wrap"><span class="tag">P&amp;ID</span><span class="tag">I/O List</span><span class="tag">EPC</span></div>
+        </div>
+      </div>
+
+      <div class="mini-card reveal">
+        <div class="thumb">
+          <img src="assets/images/gamaforce/gamaforce_1.jpg" alt="UAV Telemetry GAMAFORCE UGM">
+          <div class="cat">Electronics &amp; IoT</div>
+        </div>
+        <div class="body">
+          <h4>UAV Telemetry System - GAMAFORCE UGM</h4>
+          <p>Head of Telemetry Division. Research and development of antenna design, tuning and UAV ↔ GCS communication systems.</p>
+          <div class="tags-wrap"><span class="tag">UAV</span><span class="tag">Antenna</span><span class="tag">RF</span></div>
+        </div>
+      </div>
+
+      <div class="mini-card reveal">
+        <div class="thumb">
+          <img src="assets/images/kamalogis/kamalogis_1.png" alt="Water Level Control KAMALOGIS UGM">
+          <div class="cat">PLC &amp; Automation</div>
+        </div>
+        <div class="body">
+          <h4>Water Level Control Miniplant - KAMALOGIS UGM</h4>
+          <p>P&amp;ID design to ISA 5.1 standard, Schneider PLC/HMI programming, and training sessions for junior students on ladder diagram fundamentals.</p>
+          <div class="tags-wrap"><span class="tag">Schneider PLC</span><span class="tag">HMI</span><span class="tag">ISA 5.1</span></div>
+        </div>
+      </div>
+
+      <div class="mini-card reveal">
+        <div class="thumb">
+          <img src="assets/images/lpkta/robot_1.jpg" alt="Telepresence Robot LPKTA UGM">
+          <div class="cat">Electronics &amp; IoT</div>
+        </div>
+        <div class="body">
+          <h4>Telepresence Robot - LPKTA UGM</h4>
+          <p>Build from design to operation with existing robot chassis. Custom wiring boards, power distribution, Raspberry Pi + ESP32 integration with video streaming.</p>
+          <div class="tags-wrap"><span class="tag">Raspberry Pi</span><span class="tag">ESP32</span><span class="tag">Embedded</span></div>
+        </div>
+      </div>
+
+      <div class="mini-card reveal">
+        <div class="thumb">
+          <img src="assets/images/lpkta/lpkta_1.jpg" alt="IoT Agriculture Monitoring LPKTA UGM">
+          <div class="cat">Electronics &amp; IoT</div>
+        </div>
+        <div class="body">
+          <h4>IoT Agriculture Monitoring - LPKTA UGM</h4>
+          <p>Real-time environmental monitoring for agriculture. Raspberry Pi &amp; ESP32 handling sensor integration and live data acquisition.</p>
+          <div class="tags-wrap"><span class="tag">IoT</span><span class="tag">Sensors</span><span class="tag">Real-time</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Experience -->
+<section id="experience" class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-label">Experience</div>
+      <h2>From lab bench to field site.</h2>
+    </div>
+    <div class="tl reveal">
+
+      <div class="tl-item">
+        <div class="date">Aug 2025 - Dec 2025</div>
+        <div class="info">
+          <h4>Assistant Instructor - PLC Programming</h4>
+          <div class="org">Universitas Gadjah Mada · Teknik Fisika &nbsp;·&nbsp; Yogyakarta</div>
+          <p class="detail">Delivered hands-on sessions on Siemens S7-1200, WinCC HMI and Schneider PLC. Designed custom case studies for analog scaling and signal processing. Configured local comms between S7-1200 and WinCC.</p>
+          <div class="tags-wrap"><span class="tag">Siemens S7-1200</span><span class="tag">WinCC</span><span class="tag">Schneider PLC</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="date">Jun 2025 - Sep 2025</div>
+        <div class="info">
+          <h4>Engineering Lead - Water Treatment Plant</h4>
+          <div class="org">Cross-disciplinary engineering project &nbsp;·&nbsp; Indonesia</div>
+          <p class="detail">Led full engineering lifecycle: P&amp;ID, control narratives, mechanical drawings, panel layouts, wiring diagrams and control logic. Supervised integration across Arduino, Raspberry Pi, PLC, HMI and SCADA.</p>
+          <div class="tags-wrap"><span class="tag">Arduino</span><span class="tag">PLC</span><span class="tag">SCADA</span><span class="tag">P&amp;ID</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="date">Feb 2025 - Jun 2025</div>
+        <div class="info">
+          <h4>Instrumentation Engineer - Insys Engineering</h4>
+          <div class="org">PT Pertamina Hulu Rokan project · Balam Gathering Station &nbsp;·&nbsp; Riau</div>
+          <p class="detail">Created detailed instrument loop diagrams for the DCS DeltaV system and panel power distribution diagrams. Mapping field devices to I/O cards with signal types and cable numbering.</p>
+          <div class="tags-wrap"><span class="tag">AutoCAD</span><span class="tag">Power Distribution Diagram</span><span class="tag">Loop Diagram</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="date">Jan 2025 - Feb 2025</div>
+        <div class="info">
+          <h4>Instrument Department Intern - PT JGC Indonesia</h4>
+          <div class="org">EPC engineering &nbsp;·&nbsp; Jakarta</div>
+          <p class="detail">P&amp;ID reading and interpretation, instrument indexes, I/O lists, datasheets, typical installation drawings and hook-up drawings in an EPC environment.</p>
+          <div class="tags-wrap"><span class="tag">P&amp;ID</span><span class="tag">Instrument Index</span><span class="tag">EPC</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="date">Dec 2024 - Dec 2025</div>
+        <div class="info">
+          <h4>Head of Telemetry Division - GAMAFORCE UGM</h4>
+          <div class="org">Gadjah Mada Flying Object Research Center &nbsp;·&nbsp; UGM</div>
+          <p class="detail">Researching improved UAV communication with Ground Control Stations. Focus on antenna design, manufacturing methods, tuning procedures and maintenance protocols.</p>
+          <div class="tags-wrap"><span class="tag">UAV</span><span class="tag">RF</span><span class="tag">Antenna</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="date">Jan 2024 - Dec 2024</div>
+        <div class="info">
+          <h4>Researcher - LPKTA UGM</h4>
+          <div class="org">Lembaga Penelitian dan Kajian Teknik Aplikatif &nbsp;·&nbsp; UGM</div>
+          <p class="detail">Built a telepresence robot and IoT agriculture monitoring device. Custom wiring board design, power management, Raspberry Pi and ESP32 integration.</p>
+          <div class="tags-wrap"><span class="tag">Raspberry Pi</span><span class="tag">ESP32</span><span class="tag">IoT</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <div class="container">
+    <div class="grid">
+      <div class="reveal">
+        <div class="section-label">Get in touch</div>
+        <h2>Engineering<br>that <span class="accent">ships.</span></h2>
+        <p class="sub">Open to instrumentation, PLC &amp; automation, and control-system roles - on-site or remote. Happy to discuss a project over email or LinkedIn.</p>
+        <div class="ctas">
+          <a href="mailto:muhammadzelot@gmail.com" class="btn-primary">
+            Send an email
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/muhammad-zelot-zoha-a097a9254/" target="_blank" rel="noopener" class="btn-ghost">LinkedIn</a>
+        </div>
+      </div>
+      <div class="channels reveal">
+        <a href="mailto:muhammadzelot@gmail.com" class="channel">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div>
+          <div><div class="k">Email</div><div class="v">muhammadzelot@gmail.com</div></div>
+        </a>
+        <a href="https://www.linkedin.com/in/muhammad-zelot-zoha-a097a9254/" target="_blank" rel="noopener" class="channel">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.53C0 23.22.79 24 1.77 24h20.45c.98 0 1.77-.78 1.77-1.74V1.73C24 .77 23.21 0 22.22 0h.01z"/></svg></div>
+          <div><div class="k">LinkedIn</div><div class="v">in/muhammad-zelot-zoha</div></div>
+        </a>
+        <a href="https://github.com/zzel114" target="_blank" rel="noopener" class="channel">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></div>
+          <div><div class="k">GitHub</div><div class="v">github.com/zzel114</div></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="left"><b>Muhammad Zelot Zoha</b> &nbsp;·&nbsp; Instrument Engineer &nbsp;·&nbsp; 2025</div>
+    <div class="right">
+      <a href="#hero">Top</a>
+      <a href="#featured">Projects</a>
+      <a href="Portfolio Deck.html" target="_blank">Deck</a>
+      <a href="mailto:muhammadzelot@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Theme toggle
+  const html = document.documentElement;
+  document.getElementById('themeToggle').addEventListener('click', () => {
+    const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('porto-theme', next);
+  });
+
+  // Scroll reveal
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach((el, i) => {
+    el.style.transitionDelay = (i % 4) * 80 + 'ms';
+    obs.observe(el);
+  });
+
+  // Nav active highlight
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) cur = s.id; });
+    navLinks.forEach(a => { a.style.color = a.getAttribute('href') === '#' + cur ? 'var(--accent)' : ''; });
+  }, { passive: true });
+</script>
 </body>
 </html>

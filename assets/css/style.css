@@ -773,7 +773,7 @@ ul  { list-style: none; }
   border: 1.5px solid var(--color-border);
   border-radius: var(--radius-lg);
   width: 100%;
-  max-width: 860px;
+  max-width: 1200px;
   max-height: 92dvh;
   overflow-y: auto;
   display: flex;
